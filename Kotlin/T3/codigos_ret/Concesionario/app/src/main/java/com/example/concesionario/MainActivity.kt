@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.concesionario.adapter.AdaptadorMarcas
+import com.example.concesionario.adapter.AdaptadorModelos
 import com.example.concesionario.databinding.ActivityMainBinding
 import com.example.concesionario.model.Marca
 import com.example.concesionario.model.Modelo
@@ -19,9 +20,12 @@ class MainActivity : AppCompatActivity() {
     // adapter -> elemento que acompla los datos al spinner
     private lateinit var adaptadorMarcas: AdaptadorMarcas
 
+    private lateinit var adaptadorModelos: AdaptadorModelos
+
     // arrayList -> datos a mostrar
     private lateinit var listaModelos: ArrayList<Modelo>
     // adapter -> elemento que acompla los datos al spinner
+
 
     private lateinit var binding: ActivityMainBinding;
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,5 +55,8 @@ class MainActivity : AppCompatActivity() {
         )
         adaptadorMarcas = AdaptadorMarcas(listaMarca, applicationContext)
         binding.spinnerMarcas.adapter = adaptadorMarcas
+
+        adaptadorModelos = AdaptadorModelos(listaModelos, applicationContext)
+        binding.listViewModelos.adapter = adaptadorModelos
     }
 }
