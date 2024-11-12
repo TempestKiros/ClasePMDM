@@ -10,38 +10,31 @@ import android.widget.TextView
 import com.example.concesionario.R
 import com.example.concesionario.model.Modelo
 
-class AdaptadorModelos(private val listaModelo: ArrayList<Modelo>, private val context: Context) : BaseAdapter() {
-
-    // Número de elementos en la lista
+class AdaptadorModelos(var listaModelos: ArrayList<Modelo>, var context: Context) : BaseAdapter() {
     override fun getCount(): Int {
-        return listaModelo.size
+        return listaModelos.size
     }
 
-    // Obtener el elemento en una posición específica
-    override fun getItem(position: Int): Modelo {
-        return listaModelo[position]
+    override fun getItem(p0: Int): Modelo {
+        return listaModelos[p0]
     }
 
-    // Obtener el ID del elemento en una posición específica
-    override fun getItemId(position: Int): Long {
-        return position.toLong()
+    override fun getItemId(p0: Int): Long {
+        return p0.toLong()
     }
 
-    // Definir la representación de cada fila
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val view: View = LayoutInflater.from(context).inflate(R.layout.item_marca, parent, false)
-
-        // Encontrar las vistas dentro del layout
+    override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
+        val view: View = LayoutInflater.from(context).inflate(R.layout.item_modelo, p2, false)
         val imagen: ImageView = view.findViewById(R.id.imageModelo)
         val texto: TextView = view.findViewById(R.id.textoModelo)
-
-        // Obtener el modelo en la posición actual
-        val modelo = listaModelo[position]
-
-        // Asignar los valores a las vistas
+        val modelo = listaModelos[p0]
         imagen.setImageResource(modelo.imagen)
-        texto.text = modelo.nombre
-
+        texto.text = modelo.modelo
         return view
+    }
+
+    fun changeList(lista: ArrayList<Modelo>){
+        this.listaModelos = lista
+        notifyDataSetChanged()
     }
 }
