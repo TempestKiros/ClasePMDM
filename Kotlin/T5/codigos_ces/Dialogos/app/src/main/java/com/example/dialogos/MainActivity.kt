@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity(), DialogoInfo.OnDialogoListener,
                 // val dialogo = DialogoListaMultiple()
                 // val dialogo = DialogoFecha()
                 // val dialogo = DialogoHora()
-                val dialogo = DialogoComunicacion.newInstance("Borja","PMDM")
+                val dialogo = DialogoComunicacion.newInstance("Tempest","PMDM")
                 dialogo.show(supportFragmentManager, null)
 
 /*                TimePickerDialog(this
