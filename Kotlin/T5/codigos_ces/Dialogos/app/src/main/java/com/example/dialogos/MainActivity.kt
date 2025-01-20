@@ -27,7 +27,7 @@ import com.google.android.material.snackbar.Snackbar
 class MainActivity : AppCompatActivity(), DialogoInfo.OnDialogoListener,
     DialogoLista.OnDialogoListaListener, DialogoListaSimple.OnDialogoSimpleListener,
     DialogoListaMultiple.OnDialogoMultipleListener, DatePickerDialog.OnDateSetListener,
-        TimePickerDialog.OnTimeSetListener
+    TimePickerDialog.OnTimeSetListener
 {
 
     private lateinit var binding: ActivityMainBinding
@@ -55,10 +55,10 @@ class MainActivity : AppCompatActivity(), DialogoInfo.OnDialogoListener,
                 val dialogo = DialogoComunicacion.newInstance("Borja","PMDM")
                 dialogo.show(supportFragmentManager, null)
 
-/*                TimePickerDialog(this
-                    ,this
-                    , Calendar.getInstance().get(Calendar.HOUR),
-                    Calendar.getInstance().get(Calendar.MINUTE),true).show()*/
+                /*                TimePickerDialog(this
+                                    ,this
+                                    , Calendar.getInstance().get(Calendar.HOUR),
+                                    Calendar.getInstance().get(Calendar.MINUTE),true).show()*/
             }
         }
         return super.onOptionsItemSelected(item)
@@ -77,9 +77,10 @@ class MainActivity : AppCompatActivity(), DialogoInfo.OnDialogoListener,
 
     }
 
-    override fun onOpcionSelected(x: String) {
+    /*override fun onOpcionSelected(x: String) {
         binding.textoRespuesta.text = x
     }
+    */
 
     override fun onOpcionSimpleSelected(posicion: Int, opcion: String) {
         Log.v("preguntas",posicion.toString())
@@ -99,6 +100,10 @@ class MainActivity : AppCompatActivity(), DialogoInfo.OnDialogoListener,
     override fun onTimeSet(p0: TimePicker?, p1: Int, p2: Int) {
         Log.v("calendario",p1.toString())
         Log.v("calendario",p2.toString())
+    }
+
+    override fun onOpcionSelected(x: String) {
+        TODO("Not yet implemented")
     }
 
 
